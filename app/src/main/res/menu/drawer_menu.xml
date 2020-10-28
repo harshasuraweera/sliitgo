@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<group>
+
+
+
+
+    <item
+        android:id="@+id/courseweb"
+        android:icon="@drawable/ic_cweb"
+        android:title="CourseWeb" />
+    <item
+        android:id="@+id/sliitlksite"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="sliit.lk" />
+
+    <item
+        android:id="@+id/onlineExams"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="Online Exams" />
+
+    <item
+        android:id="@+id/eduscope"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="Eduscope" />
+
+    <item
+        android:id="@+id/studentPortal"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="Student Portal" />
+
+
+    <item
+        android:id="@+id/developerNotice"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="Developer Notice" />
+
+    <item
+        android:id="@+id/aboutApp"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="About App" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_sliitlk"
+        android:title="Logout and exit" />
+
+    </group>
+
+</menu>

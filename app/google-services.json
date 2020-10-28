@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "469156115064",
+    "firebase_url": "https://sliit-go.firebaseio.com",
+    "project_id": "sliit-go",
+    "storage_bucket": "sliit-go.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469156115064:android:916513d585db4d3e0af38d",
+        "android_client_info": {
+          "package_name": "com.evoxlk.sliitgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469156115064-g03kg0eltqbdg60tvf2qooti4afkqml7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRSzI1gvdKHBbqqIW0AlOa0I_MAE_S5Dw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469156115064-g03kg0eltqbdg60tvf2qooti4afkqml7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
