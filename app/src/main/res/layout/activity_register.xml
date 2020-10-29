@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:scaleType="centerCrop"
+    android:gravity="center"
+    android:background="@drawable/sliitbg">
 
 
     <TextView
@@ -21,8 +24,11 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColorHint="#FFFFFFFF"
+        android:background="@drawable/transparent_btn"
+        android:paddingLeft="20dp"
         android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -34,8 +40,11 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColorHint="#FFFFFFFF"
+        android:background="@drawable/transparent_btn"
+        android:paddingLeft="20dp"
         android:layout_marginTop="148dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -47,8 +56,11 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColorHint="#FFFFFFFF"
+        android:background="@drawable/transparent_btn"
+        android:paddingLeft="20dp"
         android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textPersonName"

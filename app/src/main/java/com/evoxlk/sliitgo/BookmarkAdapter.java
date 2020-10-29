@@ -1,5 +1,6 @@
 package com.evoxlk.sliitgo;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -111,7 +113,9 @@ class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.MyViewHolder>
                                     for (DataSnapshot dSnapshot : snapshot.getChildren()) {
 
                                        dSnapshot.getRef().removeValue();
-                                        Intent intent = new Intent(view.getContext(), BookmarkAdapter.class);
+                                        Intent intent = new Intent(view.getContext(), MainInterface.class);
+                                        ProgressDialog dialog = ProgressDialog.show(view.getContext(), "",
+                                                "Deleting. Please wait...", true);
                                         view.getContext().startActivity(intent);
 
                                     }
