@@ -12,6 +12,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -330,8 +331,13 @@ public class MainInterface extends AppCompatActivity implements NavigationView.O
                     UUID uuid = UUID.randomUUID();
                     databaseRider = FirebaseDatabase.getInstance().getReference("bookmarks").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()));
                     databaseRider.child(String.valueOf(uuid)).setValue(tempBookMark);
-                    Toast.makeText(view.getContext(), "Successfully added", Toast.LENGTH_SHORT).show();
+                    ProgressDialog dialog = ProgressDialog.show(view.getContext(), "",
+                            "Adding, Please wait...", true);
+
                     startActivity(new Intent(view.getContext(), MainInterface.class));
+
+
+                    Toast.makeText(view.getContext(), "Successfully added", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -409,6 +415,8 @@ public class MainInterface extends AppCompatActivity implements NavigationView.O
                     UUID uuid = UUID.randomUUID();
                     databaseRider = FirebaseDatabase.getInstance().getReference("bookmarks").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()));
                     databaseRider.child(String.valueOf(uuid)).setValue(tempBookMark);
+                    ProgressDialog dialog = ProgressDialog.show(view.getContext(), "",
+                            "Adding, Please wait...", true);
                     Toast.makeText(view.getContext(), "Successfully added", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(view.getContext(), MainInterface.class));
 

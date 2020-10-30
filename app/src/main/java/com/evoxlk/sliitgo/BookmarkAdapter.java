@@ -115,7 +115,8 @@ class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.MyViewHolder>
                                        dSnapshot.getRef().removeValue();
                                         Intent intent = new Intent(view.getContext(), MainInterface.class);
                                         ProgressDialog dialog = ProgressDialog.show(view.getContext(), "",
-                                                "Deleting. Please wait...", true);
+                                                "Deleting, Please wait...", true);
+                                        Toast.makeText(view.getContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
                                         view.getContext().startActivity(intent);
 
                                     }

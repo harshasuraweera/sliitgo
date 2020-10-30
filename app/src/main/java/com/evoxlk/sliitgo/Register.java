@@ -3,6 +3,7 @@ package com.evoxlk.sliitgo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -102,7 +103,7 @@ public class Register extends AppCompatActivity {
                                 user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(getApplicationContext(), "Verification email has been sent", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Successfully registered, please verify your email", Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -111,8 +112,6 @@ public class Register extends AppCompatActivity {
                                     }
                                 });
 
-
-                                Toast.makeText(getApplicationContext(), "Successfully registered", Toast.LENGTH_SHORT).show();
 
                                 userId = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("students").document(userId);
@@ -124,12 +123,13 @@ public class Register extends AppCompatActivity {
                                 documentReference.set(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Log.d("TAG", "User profile is saved on firestore : " + userId);
+                                        Log.d("TAG", "User profile is saved on fireStore : " + userId);
                                     }
                                 });
 
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(), Login.class));
 
-                                startActivity(new Intent(getApplicationContext(), MainInterface.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             }

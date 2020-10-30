@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
@@ -46,20 +47,6 @@ public class Login extends AppCompatActivity {
         fAuth =  FirebaseAuth.getInstance();
         forgotPassword  = findViewById(R.id.forgotPassword);
         progressBar2 = findViewById(R.id.progressBar2);
-
-        developerDetails = findViewById(R.id.developerDetailss);
-
-        developerDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Login.this);
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.setMessage("App is designed and developed by Harsha Suraweera\nEmail : hi@harshasuraweera.me\nharshamanoj912@gmail.com" +
-                        "\nWebsite: harshasuraweera.me");
-                alertDialog.show();
-            }
-        });
 
 
         if (fAuth.getCurrentUser() != null){
@@ -89,14 +76,28 @@ public class Login extends AppCompatActivity {
 
                     progressBar2.setVisibility(View.VISIBLE);
 
+
+
+
+
                     //login
 
                     fAuth.signInWithEmailAndPassword(userLoginEmail, userLoginPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Successfully logged in", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainInterface.class));
+
+                                final FirebaseUser user = fAuth.getCurrentUser();
+                                if (user.isEmailVerified()){
+                                    Toast.makeText(getApplicationContext(), "Successfully logged in", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), MainInterface.class));
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "Please verify your email..", Toast.LENGTH_SHORT).show();
+                                    progressBar2.setVisibility(View.INVISIBLE);
+                                    FirebaseAuth.getInstance().signOut();
+                                }
+
+
                             } else {
                                 Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                                 progressBar2.setVisibility(View.INVISIBLE);
