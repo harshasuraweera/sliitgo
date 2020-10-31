@@ -22,15 +22,17 @@
             android:name=".MainInterface"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login" android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".ShowDialog" />
+        <activity android:name=".AppStart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register" />
-        <activity android:name=".ShowDialog" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
